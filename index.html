@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/index.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>IT Managment Sign In</h1>
+        <div class="form-box">
+            <img src="img/login-logo.png" alt="Logo">
+            <form action="functions/login.php" method="POST">
+                <div class="input-group">
+
+                    <div class="input-field">
+                        <i class="fa fa-user"></i>
+                        <input type="text" id="staffid" placeholder="Staff ID" name="staffid" required>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" name="password" required>
+                    </div>
+                </div>
+                <div class="btn-field">
+                    <button type="submit">Log In</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <script>
+        // check if the query parameter 'expired' is present in the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const isExpired = urlParams.get('expired');
+    
+        if (isExpired === 'true') {
+            // add a new paragraph below the form with the message
+            const message = document.createElement('p');
+            message.textContent = 'Account expired';
+            document.querySelector('form').insertAdjacentElement('afterend', message);
+        }
+    </script>
+</body>
+</html>

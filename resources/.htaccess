@@ -1,0 +1,4 @@
+Header always unset If-Modified-Since
+Header always unset If-None-Match
+Header always unset Cache-Control
+Header always unset Expires

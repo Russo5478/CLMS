@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.hidden {
+  display: none;
+  /* Add any other styles you want for the hidden divs */
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+#labs{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size:20px;
+  font-weight: bold;
+  position: relative;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+.container > h3 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 15px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.container > div {
+  flex-basis: 100%;
+  padding: 10px;
+  margin: 10px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 7px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.submit-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+select{
+  margin-bottom: 10px;
+}

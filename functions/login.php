@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $staffid = $_POST['staffid'];
 $password = $_POST['password'];
 
@@ -40,20 +42,38 @@ if ($user_info) {
     $staff_id = $user_info['staff_id'];
     $expiry_date = $user_info['expiry_date'];
     $is_admin = $user_info['is_admin'];
+    $status = $user_info['status'];
 
     if (strtotime($expiry_date) <= strtotime($todays_date)) {
         header("Location: ../index.html?expired=true");
         exit();
     }
 
-    elseif ($is_admin == 1) {
-        logUserLogin($pdo, $staff_id);
-        header("Location: admin.php");
-        exit();
-    }
+    else {
+      if ($status == 'active') {
+        if ($is_admin == 1) {
+          logUserLogin($pdo, $staff_id);
+          $_SESSION['isLoggedIn'] = true;
+          $_SESSION['username'] = $user_info['Names'];
+          $_SESSION['userid'] = $user_info['staff_id'];
+          $_SESSION['categ'] = ($user_info['is_admin'] == 1 ? 'Administrator' : 'User');
+          header("Location: ../Admin/admin.php");
+          exit();
+        }
+  
+        elseif ($is_admin == 0) {
+          logUserLogin($pdo, $staff_id);
+          $_SESSION['isLoggedIn'] = true;
+          $_SESSION['username'] = $user_info['Names'];
+          $_SESSION['userid'] = $user_info['staff_id'];
+          header("Location: ../otherUser.php");
+          exit();
+        }
+      }
 
-    elseif ($is_admin == 0) {
-        logUserLogin($pdo, $staff_id);
+      else {
+        echo "suspended";
+      }
     }
 }
 

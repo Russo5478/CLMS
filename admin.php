@@ -1,3 +1,21 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] !== true) {
+    // Redirect back to the login page if the user is not logged in
+    header("Location: index.html");
+    exit();
+
+}
+
+else {
+    $username = $_SESSION['username'];
+    $staffid = $_SESSION['userid'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,102 +28,137 @@
 </head>
 
 <body>
-    <input type="checkbox" id="nav-toggle">
-    <div class="sidebar">
-        <div class="sidebar-brand">
-            <h2><span class="lab-la"></span>CLMS</h2>
-        </div>
-
-        <div class="sidebar-menu">
-            <ul>
-                <li>
-                    <a href="" class="active"><span class="fa fa-dashboard"></span>
-                    <span>Dashboard</span></a>
-                </li>
-
-                <li>
-                    <a href=""><span class="fa fa-building"></span>
-                    <span>Computer Labs</span></a>
-                </li>
-
-                <li>
-                    <a href=""><span class="fa fa-book"></span>
-                    <span>Reports</span></a>
-                </li>
-
-                <li>
-                    <a href=""><span class="fa fa-user"></span>
-                    <span>Accounts</span></a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="navigation"></div>
-
-    <div class="main-content">
+    <div id="header-section">
         <header>
             <h2>
                 <label for="nav-toggle">
                     <span class="fa fa-bars"></span>
                 </label>
-                Dashboard
+                KCA LABS
             </h2>
 
             <div class="user-wrapper">
                 <img src="assets/imgs/user.png" alt="">
                 <div>
-                    <h4>Admin Account</h4>
-                    <small>Admin</small>
+                    <h3><?php echo $username; ?></h3>
+                    <small><?php echo $staffid; ?></small>
                 </div>
             </div>
         </header>
+    </div>
 
-        <main>
-            <div class="cards">
-                <div class="card-single">
-                    <div>
-                        <h1>200</h1>
-                        <span>Computers</span>
-                    </div>
-                    <div>
-                        <div class="fa fa-laptop fa-2x"></div>
-                    </div>
-                </div>
-
-                <div class="card-single">
-                    <div>
-                        <h1>15</h1>
-                        <span>Computer Labs</span>
-                    </div>
-                    <div>
-                        <div class="fa fa-home fa-2x"></div>
-                    </div>
-                </div>
-
-                <div class="card-single">
-                    <div>
-                        <h1>2</h1>
-                        <span>Issues</span>
-                    </div>
-                    <div>
-                        <div class="fa fa-book fa-2x"></div>
-                    </div>
-                </div>
-
-                <div class="card-single">
-                    <div>
-                        <h1>1</h1>
-                        <span>Computers</span>
-                    </div>
-                    <div>
-                        <div class="fa fa-laptop fa-2x"></div>
-                    </div>
-                </div>
-
+    <div id="contents">
+        <input type="checkbox" id="nav-toggle">
+        <div class="sidebar">
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="" class="tab active"><span class="fa fa-dashboard"></span>
+                        <span>Dashboard</span></a>
+                    </li>
+    
+                    <li>
+                        <a class="tab" href="Admin.html#computerlab-content"><span class="fa fa-building"></span>
+                        <span>Computer Labs</span></a>
+                    </li>
+    
+                    <li>
+                        <a class="tab" href="Admin.html#reports-section"><span class="fa fa-book"></span>
+                        <span>Reports</span></a>
+                    </li>
+    
+                    <li>
+                        <a class="tab" href="Admin.html#accounts-section"><span class="fa fa-user"></span>
+                        <span>Accounts</span></a>
+                    </li>
+                </ul>
             </div>
-        </main>
+        </div>
+    
+        <div class="main-content">
+            <div id="dashboard-contents" class="tab-content active">
+                <div class="cards">
+                    <div class="card-single">
+                        <div>
+                            <h1>200</h1>
+                            <span>Computers</span>
+                        </div>
+                        <div>
+                            <div class="fa fa-laptop fa-2x"></div>
+                        </div>
+                    </div>
+    
+                    <div class="card-single">
+                        <div>
+                            <h1>15</h1>
+                            <span>Computer Labs</span>
+                        </div>
+                        <div>
+                            <div class="fa fa-home fa-2x"></div>
+                        </div>
+                    </div>
+    
+                    <div class="card-single">
+                        <div>
+                            <h1>2</h1>
+                            <span>Issues</span>
+                        </div>
+                        <div>
+                            <div class="fa fa-book fa-2x"></div>
+                        </div>
+                    </div>
+    
+                    <div class="card-single">
+                        <div>
+                            <h1>1</h1>
+                            <span>Computers</span>
+                        </div>
+                        <div>
+                            <div class="fa fa-laptop fa-2x"></div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+
+            <div id="computerlab-content" class="tab-content">
+                <p>1hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+                <p>2hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+                <p>3hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+                <p>4hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+                <p>5hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+                <p>6hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+                <p>7hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+                <p>8hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+                <p>9hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+                <p>10hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+                <p>11hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhjjjjj</p>
+            </div>
+
+            <div id="reports-section" class="tab-content">
+            </div>
+
+            <div id="accounts-section" class="tab-content">
+            </div>
+        </div>
     </div>
 </body>
 
+<script>
+    const tabs = document.querySelectorAll('.tab');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Remove active class from all tabs and content sections
+    tabs.forEach(tab => tab.classList.remove('active'));
+    tabContents.forEach(content => content.classList.remove('active'));
+    
+    // Add active class to clicked tab and corresponding content section
+    tab.classList.add('active');
+    const target = tab.getAttribute('href');
+    document.querySelector(target).classList.add('active');
+  });
+});
+</script>
 </html>
